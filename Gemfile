@@ -21,6 +21,10 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'dotenv-rails'
 gem 'rails_12factor', group: :production
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'rmagick', require: 'RMagick'
+
 
 group :development, :test do
   gem 'byebug', platform: :mri

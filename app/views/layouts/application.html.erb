@@ -21,9 +21,9 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
         <li><%= link_to "投稿", new_picture_path %></li>
-        <li><%= link_to "ユーザー登録", new_user_session_path %></li>
-
-        
+        <li><%= link_to "ユーザー登録", new_user_registration_path %></li>
+        <li><%= link_to "ログイン", new_user_session_path %></li>
+        <li><%= link_to "ログアウト", destroy_user_session_path , method: :delete %></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
