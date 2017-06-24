@@ -24,11 +24,9 @@ class PicturesController < ApplicationController
   # POST /pictures
   # POST /pictures.json
   def create
+
     @picture = Picture.new(picture_params)
-    if @picture.invalid == true
-      redirect_to new_picture_path, notice: "画像ファイルのアップロードに失敗しました"
-    else
-      @picture.user_id = current_user.id
+    @picture.user_id = current_user.id
       respond_to do |format|
         if @picture.save
           format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
@@ -37,7 +35,6 @@ class PicturesController < ApplicationController
           format.html { render :new }
           format.json { render json: @picture.errors, status: :unprocessable_entity }
         end
-      end
     end
   end
 
@@ -74,6 +71,6 @@ class PicturesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def picture_params
-      params.require(:picture).permit(:image)
+      params.require(:picture).permit(:image) if params[:picture].present?
     end
 end
