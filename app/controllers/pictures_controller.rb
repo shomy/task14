@@ -26,7 +26,7 @@ class PicturesController < ApplicationController
   def create
     @picture = Picture.new(picture_params)
     if @picture.invalid == true
-      render 'new'
+      redirect_to new_picture_path, notice: "画像ファイルのアップロードに失敗しました"
     else
       @picture.user_id = current_user.id
       respond_to do |format|
