@@ -25,9 +25,8 @@ class PicturesController < ApplicationController
   # POST /pictures.json
   def create
     @picture = Picture.new(picture_params)
+    render :new if @picture.invalid?
     @picture.user_id = current_user.id
-    render :new if @picture.image == nil
-
     respond_to do |format|
       if @picture.save
         format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
