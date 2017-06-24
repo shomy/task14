@@ -25,7 +25,7 @@ class PicturesController < ApplicationController
   # POST /pictures.json
   def create
     @picture = Picture.new(picture_params)
-    if @picture.invalid?
+    if @picture.invalid == true
       render 'new'
     else
       @picture.user_id = current_user.id
