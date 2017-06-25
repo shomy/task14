@@ -33,7 +33,7 @@ class PicturesController < ApplicationController
           format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
           format.json { render :show, status: :created, location: @picture }
         else
-          format.html { render :new }
+          format.html { render 'public/500.html' }
           format.json { render json: @picture.errors, status: :unprocessable_entity }
         end
     end
