@@ -38,9 +38,7 @@ class PicturesController < ApplicationController
         end
     end
   end
-  def render_500
-    render template: 'errors/error_500', status: 500, layout: 'application', content_type: 'text/html'
-  end
+
   # PATCH/PUT /pictures/1
   # PATCH/PUT /pictures/1.json
   def update
